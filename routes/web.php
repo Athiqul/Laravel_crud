@@ -21,3 +21,5 @@ use \App\Http\Controllers\Products;
 Route::get('/',[Products::class,'index'])->name('home');
 Route::get('/create',[Products::class,'create'])->name('product.create');
 Route::post('/store',[Products::class,'store'])->name('product.store');
+Route::get('/show/{id}',[Products::class,'show'])->name('product.show');
+

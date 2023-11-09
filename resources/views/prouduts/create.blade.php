@@ -14,18 +14,39 @@
                     <div class="form-group">
                       <label for="exampleInputEmail1">Product Title</label>
                       <input type="text" class="form-control"  placeholder="Product title" name="title" value="{{old('title')}}" required>
+                      @if ($errors->has('title'))
+                      @error('title')
+                      <span class="text-danger">{{$message}}</span>
+                       @enderror
+                      @else
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      @endif
+
+
                     </div>
 
 
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Product Description</label>
-                        <textarea class="form-control" name="desc" required rows="3">{{old('desc')}}</textarea>
+                        <textarea class="form-control" name="desc"  rows="3">{{old('desc')}}</textarea>
+
+                        @error('desc')
+                        <span class="text-danger">{{$message}}</span>
+
+                        @enderror
+
+
                       </div>
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Product Image</label>
                         <input type="file" class="form-control" name="image" id="exampleFormControlFile1">
+                       @error('image')
+                       <span class="text-danger">{{$message}}</span>
+                       @enderror
+
+
+
                       </div>
                       <div class="form-group mt-3">
                         <input type="hidden" name="status" value="0">
