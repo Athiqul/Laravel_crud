@@ -6,9 +6,9 @@
          {{ $item->title }}
         </div>
         <div class="card-body">
-           <img src="{{ asset('storage/images/'.$item->image) }}" alt="{{ $item->title }}">
+           <img src="{{ asset('storage/images/'.$item->image) }}"  height="300px" alt="{{ $item->title }}">
           <p class="card-text">{{ $item->desc }}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">Deactive</a>
         </div>
         <div class="card-footer text-muted">
           {{ $item->created_at }}
