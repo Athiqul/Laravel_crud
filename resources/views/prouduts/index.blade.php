@@ -35,12 +35,21 @@
                 <td>{{ $item->created_at->diffForHumans() }}</td>
                 <td>
                     <a href="{{ route('product.edit', $item->id ) }}" class="btn btn-info">Edit</a>
-                    <a href="{{ route('product.status',['id'=>$item->id]) }}" onclick="return confirm('Are sure to change status of this product?')" class="btn {{ $item->status=='1'?'btn-warning':'btn-success' }}">@if ($item->status=='1')
-                        Deactive
-                    @else
-                        Active
-                    @endif</a>
-                    <a href="{{ route('product.delete',['id'=>$item->id]) }}" onclick="return confirm('Are you really want to delete ')" class="btn btn-danger">Delete</a>
+                    <form action="{{ route('product.status',['id'=>$item->id]) }}" method="post" class="d-inline"  onsubmit="return confirm('Are sure to change status of this product?')">
+                  @csrf
+                  @method('PATCH')
+                  <button type="submit"  class="btn {{ $item->status=='1'?'btn-warning':'btn-success' }}">@if ($item->status=='1')
+                      Deactive
+                  @else
+                      Active
+                  @endif</button>
+                  </form>
+
+                    <form action="{{ route('product.delete',['id'=>$item->id]) }}" method="POST" class="d-inline">
+                       @method('DELETE')
+                       @csrf
+                       <button type="submit" onsubmit="return confirm('Are you really want to delete ')" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
               </tr>
 

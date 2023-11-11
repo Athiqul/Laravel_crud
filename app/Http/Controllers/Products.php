@@ -149,7 +149,7 @@ class Products extends Controller
      {
         try{
             ProductModel::where('id',$id)->delete();
-            return back()->with('alert-success','Item Successfully deleted!');
+            return redirect(route('home'))->with('alert-success','Item Successfully deleted!');
         }catch(Exception $ex)
         {
             return back()->with('alert-danger',$ex->getMessage());
